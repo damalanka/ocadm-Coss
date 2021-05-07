@@ -88,7 +88,6 @@ antony:$apr1$ANGXSkC2$cI5tLmooTMWywGSBooCSM0
 2.Create a persisten Volume of "exam-registry-volume" using /OCP_registry
 "exam-registry-volume" to be bound with a PVC "exam-registry-claim" for
 substituting/replacing the default "docker-registry" volume.Project (Default)
-
 Create PV an PVC with below steps.
 -----------------------------------
 
@@ -182,3 +181,58 @@ NAME STATUS VOLUME CAPACITY ACCESS MODES STORAGECLASS AGE
 exam-registry-claim Bound exam-registry-volume 5Gi RWX 14s
 registry-claim Bound registry-volume 40Gi RWX 1d
 [root@master ~]#
+
+
+3. Roles to users:-
+-------------------
+
+Create five projects
+samples
+lobster
+dito
+tokyo
+nginx
+having a description "EX280 Project For application deployment"
+accessible to only greg and anthony.
+greg should have admin access over "stanley" and "sydney".
+anthony should be able to view "sydney" project but should not be able to modify/customize.
+anthony should have admin access over project "farm"
+joe has administrative access to tokyo nad nginx
+
+[root@master ~]# oc new-project sydney --description="EX280 project for application deployment"
+Now using project "sydney" on server "https://master.lab.example.com".
+You can add applications to this project with the 'new-app' command. For example, try:
+oc new-app centos/ruby-22-centos7~https://github.com/openshift/ruby-ex.git
+to build a new example application in Ruby.
+[root@master ~]#
+
+[root@master ~]# oc new-project farm --description="EX280 project for application deployment"
+Now using project "farm" on server "https://master.lab.example.com".
+You can add applications to this project with the 'new-app' command. For example, try:
+oc new-app centos/ruby-22-centos7~https://github.com/openshift/ruby-ex.git
+to build a new example application in Ruby.
+[root@master ~]#
+
+[root@master ~]# oc new-project tokyo --description="EX280 project for application deployment"
+Now using project "tokyo" on server "https://master.lab.example.com".
+You can add applications to this project with the 'new-app' command. For example, try:
+oc new-app centos/ruby-22-centos7~https://github.com/openshift/ruby-ex.git
+to build a new example application in Ruby.
+[root@master ~]#
+
+[root@master ~]# oc new-project nginix --description="EX280 project for application deployment"
+Error from server (AlreadyExists): project.project.openshift.io "nginix" already exists
+[root@master ~]#
+
+[root@master ~]# oc adm policy add-role-to-user admin greg -n sydney
+role "admin" added: "greg"
+[root@master ~]#
+
+[root@master ~]# oc adm policy add-role-to-user admin joe -n tokyo
+role "admin" added: "joe"
+[root@master ~]#
+
+[root@master ~]# oc adm policy add-role-to-user view antony -n nginix
+role "view" added: "antony"
+[root@master ~]#
+
