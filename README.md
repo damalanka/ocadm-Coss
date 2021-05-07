@@ -88,6 +88,7 @@ antony:$apr1$ANGXSkC2$cI5tLmooTMWywGSBooCSM0
 2.Create a persisten Volume of "exam-registry-volume" using /OCP_registry
 "exam-registry-volume" to be bound with a PVC "exam-registry-claim" for
 substituting/replacing the default "docker-registry" volume.Project (Default)
+
 Create PV an PVC with below steps.
 -----------------------------------
 
