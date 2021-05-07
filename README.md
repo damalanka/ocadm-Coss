@@ -112,6 +112,7 @@ namespace: default
 [root@master ~]#
 
 [root@master ~]# oc get pv
+
 NAME CAPACITY ACCESS MODES RECLAIM POLICY STATUS CLAIM
 STORAGECLASS REASON AGE
 etcd-vol2-volume 1G RWO Retain Bound
@@ -123,6 +124,7 @@ registry-volume 40Gi RWX Retain Bound default/registry-claim
 [root@master ~]#
 
 [root@master ~]# oc get pvc
+
 NAME STATUS VOLUME CAPACITY ACCESS MODES STORAGECLASS AGE
 exam-registry-claim Bound exam-registry-volume 5Gi RWX 2m
 registry-claim Bound registry-volume 40Gi RWX 1d
@@ -137,6 +139,7 @@ persistentvolume "exam-registry-volume" deleted
 [root@master ~]#
 
 [root@master ~]# oc get pv
+
 NAME CAPACITY ACCESS MODES RECLAIM POLICY STATUS CLAIM
 STORAGECLASS REASON AGE
 etcd-vol2-volume 1G RWO Retain Bound
@@ -146,6 +149,7 @@ registry-volume 40Gi RWX Retain Bound default/registry-claim
 [root@master ~]#
 
 [root@master ~]# oc get pvc
+
 NAME STATUS VOLUME CAPACITY ACCESS MODES STORAGECLASS AGE
 registry-claim Bound registry-volume 40Gi RWX 1d
 [root@master ~]#
@@ -161,6 +165,7 @@ info: deploymentconfigs "docker-registry" was not changed
 [root@master ~]#
 
 [root@master ~]# oc get pv
+
 NAME CAPACITY ACCESS MODES RECLAIM POLICY STATUS CLAIM
 STORAGECLASS REASON AGE
 etcd-vol2-volume 1G RWO Retain Bound
@@ -172,6 +177,7 @@ registry-volume 40Gi RWX Retain Bound default/registry-claim
 [root@master ~]#
 
 [root@master ~]# oc get pvc
+
 NAME STATUS VOLUME CAPACITY ACCESS MODES STORAGECLASS AGE
 exam-registry-claim Bound exam-registry-volume 5Gi RWX 14s
 registry-claim Bound registry-volume 40Gi RWX 1d
